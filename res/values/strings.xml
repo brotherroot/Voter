@@ -28,4 +28,5 @@
 	<string name="launchdefinition">确认发起</string>
 	<string name="rrtitle">您将发起的话题是：</string>
 	<string name="passkey">请输入密码：</string>
+	<string name="passkeywords">密码框</string>
 </resources>

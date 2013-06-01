@@ -28,6 +28,11 @@
         <activity
             android:name="com.example.voter.Show">
         </activity>
+        <activity
+            android:name="com.example.voter.Password"
+            android:label="@string/passkeywords" 
+            android:theme="@android:style/Theme.Dialog" >       
+        </activity>
     </application>
 
 </manifest>
