@@ -2,14 +2,11 @@ package com.example.voter;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 
 public class Join extends Activity {
-	LinearLayout layout;
 	EditText inputvoteidEditText;
 	Button confirmButton;
 	
@@ -18,8 +15,8 @@ public class Join extends Activity {
 		Bundle savedInstanceState = null;
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.join);
-		inputvoteidEditText = (EditText)findViewById(R.id.inputvoteid);
-		confirmButton = (Button)findViewById(R.id.confirm);
+		inputvoteidEditText = (EditText)findViewById(R.id.get_voteid);
+		confirmButton = (Button)findViewById(R.id.button_ok);
 		confirmButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
