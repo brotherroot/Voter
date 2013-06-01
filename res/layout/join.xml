@@ -12,7 +12,6 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:id="@+id/whole">
-
 		<TextView
 		    android:id="@+id/voteid"
 		    android:layout_width="wrap_content"
@@ -21,10 +20,12 @@
 
 		<EditText
 		    android:id="@+id/inputvoteid"
-		    android:layout_below="@+id/voteid"
-	        android:layout_width="fill_parent"
+		    android:layout_width="fill_parent"
 		    android:layout_height="wrap_content"
-		    android:hint="@string/inputvoteid" >
+		    android:layout_below="@+id/voteid"
+		    android:hint="@string/inputvoteid"
+		    android:inputType="number" >
+
 		</EditText>
 		<Button
 		    android:id="@+id/confirm"
