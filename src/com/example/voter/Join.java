@@ -24,9 +24,8 @@ public class Join extends Activity {
 			@Override
 			public void onClick(View view) {
 				int voteid = Integer.parseInt(inputvoteidEditText.getText().toString());
-				voteid = voteid + 1;
+				//Vote status = WebAccess.getResult(voteid);
 			}
 		});
-		
 	}
 }

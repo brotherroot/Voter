@@ -30,8 +30,14 @@
         </activity>
         <activity
             android:name="com.example.voter.Password"
-            android:label="@string/passkeywords" 
+            android:label="@string/get_password" 
             android:theme="@android:style/Theme.Dialog" > 
+        </activity>
+        <activity
+            android:name="com.example.voter.Join">
+        </activity>
+        <activity
+            android:name="com.example.voter.Vote">
         </activity>
     </application>
 
