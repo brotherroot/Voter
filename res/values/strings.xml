@@ -29,4 +29,7 @@
 	<string name="rrtitle">您将发起的话题是：</string>
 	<string name="passkey">请输入密码：</string>
 	<string name="passkeywords">密码框</string>
+	<string name="inputvoteid">请输入id：</string>
+	<string name="confirm">确定</string>
+	<string name="voteid">投票id</string>
 </resources>
