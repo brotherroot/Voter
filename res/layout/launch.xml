@@ -23,7 +23,7 @@
         android:layout_below="@+id/title"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hintwords1"
+        android:hint="@string/hint_topic"
         />
     <TextView
         android:id="@+id/describe"
@@ -51,7 +51,7 @@
              android:id="@+id/de_vote_option_1"
              android:layout_width="match_parent"
         	 android:layout_height="wrap_content"
-        	 android:hint="@string/option_first"
+        	 android:hint="@string/hint_option1"
             />
     </LinearLayout>
     <Button
@@ -142,7 +142,7 @@
              android:layout_width="wrap_content"
         	 android:layout_height="wrap_content"
         	 android:layout_below="@+id/launcher"
-        	 android:hint="@string/launcherid"
+        	 android:hint="@string/hint_launcher"
             />
     <Button
         android:id="@+id/launchdef"
