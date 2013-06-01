@@ -51,14 +51,14 @@
              android:id="@+id/de_vote_option_1"
              android:layout_width="match_parent"
         	 android:layout_height="wrap_content"
-        	 android:hint="@string/option1"
+        	 android:hint="@string/option_first"
             />
     </LinearLayout>
     <Button
         android:id="@+id/add_option"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/additionmark"
+        android:text="@string/add_option"
         android:layout_below="@+id/newvotes_layout"
        />
      <TextView
@@ -66,7 +66,7 @@
         android:layout_below="@+id/add_option"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/optionwords"
+        android:text="@string/vote_type_choose"
     />
 	 <RadioGroup android:id="@+id/sel1"
 	     android:orientation="horizontal"
@@ -92,7 +92,7 @@
         android:layout_below="@+id/sel1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/rightset"
+        android:text="@string/set_vote_right"
     />
 
  <RadioGroup
@@ -121,21 +121,21 @@
         android:layout_below="@+id/sel2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/timesetting"
+        android:text="@string/get_timelimit"
     />
 	<EditText
              android:id="@+id/timestop"
              android:layout_width="wrap_content"
         	 android:layout_height="wrap_content"
         	 android:layout_below="@+id/timerequest"
-        	 android:hint="@string/timelimit"
+        	 android:hint="@string/hint_timelimit"
             />
 	<TextView
         android:id="@+id/launcher"
         android:layout_below="@+id/timestop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/launchername"
+        android:text="@string/launcher"
     />
     <EditText
              android:id="@+id/addid"
@@ -149,7 +149,7 @@
         android:layout_below="@+id/addid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/launchdefinition"
+        android:text="@string/ok"
     />
     </RelativeLayout>
  </ScrollView>

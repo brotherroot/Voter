@@ -6,30 +6,34 @@
     <string name="hello_world">Hello world!</string>
     <string name="launch">我要发起</string>
     <string name="join">我要参与</string>
-    <string name="WelcomeWord">天天投票</string>
-    <string name="About">关于</string>
-    <string name="topic">话题</string>
-    <string name="description">问题描述</string>
-    <string name="hintwords1">输入你要发起的话题</string>
-    <string name="single">单选</string>
-    <string name="multiply">多选</string>
-    <string name="option1">请输入第1个选项</string>
-	<string name="additionmark">再加一个</string>
-	<string name="definition">确定</string>
-	<string name="hintwords2">对你的话题进行一些描述</string>
-	<string name="optionwords">您的投票将允许：</string>
-	<string name="rightset">是否设置投票权限：</string>
-	<string name="yes">是</string>
+    <string name="about">关于</string>
+    <string name="welcomeWord">天天投票</string>
+    
+    <string name="yes">是</string>
 	<string name="no">否</string>
-	<string name="timesetting">设定最长允许投票的时间:</string>
-	<string name="timelimit">按小时输入数字</string>
-	<string name="launchername">发起者</string>
+	<string name="ok">确定</string>
+
+    <string name="hintwords1">输入你要发起的话题</string>
+
+    <string name="option_first">请输入第1个选项</string>
+	<string name="add_option">再加一个</string>
+	<string name="hint_description">对你的话题进行一些描述</string>
+	<string name="vote_type_choose">您的投票将允许：</string>
+	<string name="set_vote_right">是否设置投票权限：</string>
+	
+	<string name="get_timelimit">设定最长允许投票的时间:</string>
+	<string name="hint_timelimit">按小时输入时限</string>
+	<string name="get_topic">您将发起的话题是：</string>
+	<string name="get_password">请输入密码：</string>
+	<string name="hint_password">密码框</string>
+	<string name="get_voteid">请输入id：</string>
+	
+	<string name="launcher">发起者</string>
 	<string name="launcherid">给自己添一个id吧</string>
-	<string name="launchdefinition">确认发起</string>
-	<string name="rrtitle">您将发起的话题是：</string>
-	<string name="passkey">请输入密码：</string>
-	<string name="passkeywords">密码框</string>
-	<string name="inputvoteid">请输入id：</string>
-	<string name="confirm">确定</string>
+	<string name="topic">话题</string>
+	<string name="description">问题描述</string>
+	<string name="timelimit">时限</string>
 	<string name="voteid">投票id</string>
+	<string name="single">单选</string>
+    <string name="multiply">多选</string>
 </resources>
