@@ -108,13 +108,13 @@
          android:id="@+id/pub"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         android:text="@string/yes" 
-         android:onClick="add_password"/>
+         android:text="@string/yes" />
      <RadioButton
       android:id="@+id/self"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="@string/no" />
+      android:text="@string/no" 
+      />
   </RadioGroup>
   <TextView
         android:id="@+id/timerequest"

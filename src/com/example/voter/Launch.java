@@ -2,8 +2,11 @@ package com.example.voter;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -50,7 +53,8 @@ public class Launch extends Activity{
 	        	                 break;
 	        	             }				
 			}
-	     
+	         }
+		 };
 		passwordButton=(RadioButton)findViewById(R.id.self);
 		nonpasswordButton=(RadioButton)findViewById(R.id.pub);
 		formeroptionEditText=(EditText)findViewById(R.id.de_vote_option_1);
@@ -66,15 +70,38 @@ public class Launch extends Activity{
 
 
 	public  void add_option(int num){
-		new_optionEditText=(EditText) new EditText(this);
+		new_optionEditText=(EditText) new EditText(this);//ERROR
 		new_optionEditText.setHint("请输入第" + num + "个选项");
 		formsetLayout.addView(new_optionEditText);
 		
 	}
 	public void add_password(){
-		intent1.setClass(Launch.this,Password.class);
-		startActivity(intent1);
-	                          }
-	};
-	}
+		//intent1.setClass(Launch.this,Password.class);
+		//startActivity(intent1);
+		LayoutInflater layoutInflater = LayoutInflater.from(this); 
+        View myLoginView = layoutInflater.inflate(R.layout.password, null); 
+         
+        Dialog alertDialog = new AlertDialog.Builder(this). 
+                setTitle("密码框"). 
+                setIcon(R.drawable.ic_launcher). 
+                setView(myLoginView). 
+                setPositiveButton("确定", new DialogInterface.OnClickListener() { 
+ 
+                    @Override 
+                    public void onClick(DialogInterface dialog, int which) { 
+                        // TODO Auto-generated method stub  
+                    } 
+                }). 
+                setNegativeButton("取消", new DialogInterface.OnClickListener() { 
+ 
+                  //  @Override 
+                    public void onClick(DialogInterface dialog, int which) { 
+                        // TODO Auto-generated method stub  
+                    } 
+                }). 
+                create(); 
+        alertDialog.show(); 
+	
 }
+		 }
+	
