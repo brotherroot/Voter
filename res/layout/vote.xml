@@ -13,19 +13,17 @@
 	    
 	    <TableRow>
 			<TextView
-			    android:id="@+id/text_voteid"
+			    android:id="@+id/text_id"
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
 			    android:layout_marginRight="@dimen/activity_vertical_margin"
-			    android:text="@string/voteid"
-			    android:textAppearance="?android:attr/textAppearanceMedium" />
+			    android:text="@string/voteid" />
 			
 			<TextView
-			    android:id="@+id/voteid"
+			    android:id="@+id/id"
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
-			    android:text="@string/fill_white_space"
-			    android:textAppearance="?android:attr/textAppearanceMedium" />
+			    android:text="@string/fill_white_space" />
 
 		</TableRow> 
 		
@@ -35,66 +33,62 @@
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
 			    android:layout_marginRight="@dimen/activity_vertical_margin"
-			    android:text="@string/launcher"
-			    android:textAppearance="?android:attr/textAppearanceMedium" />
+			    android:text="@string/launcher" />
 			
 			<TextView
 			    android:id="@+id/launcher"
 			    android:layout_width="match_parent"
 			    android:layout_height="wrap_content"
-			    android:text="@string/fill_white_space"
-			    android:textAppearance="?android:attr/textAppearanceMedium" />
+			    android:text="@string/fill_white_space" />
 		</TableRow> 
 		
-	    <TableRow> 
-			<TextView
-			    android:id="@+id/text_topic"
-			    android:layout_width="wrap_content"
-			    android:layout_height="wrap_content"
-			    android:layout_marginRight="@dimen/activity_vertical_margin"
-			    android:text="@string/topic"
-			    android:textAppearance="?android:attr/textAppearanceMedium" />
+	    <TableRow>
 			
 			<TextView
 			    android:id="@+id/topic"
 			    android:layout_width="match_parent"
 			    android:layout_height="wrap_content"
-			    android:text="@string/fill_white_space"
-			    android:textAppearance="?android:attr/textAppearanceMedium" />
+			    android:text="@string/fill_white_space" />
+		</TableRow>
+		
+	    <TableRow>
+			
+			<TextView
+			    android:id="@+id/description"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:text="@string/fill_white_space" />
+
 		</TableRow>
 		
 	    <TableRow> 
 			<TextView
-			    android:id="@+id/text_vote_type"
+			    android:id="@+id/text_type"
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
 			    android:layout_marginRight="@dimen/activity_vertical_margin"
-			    android:text="@string/vote_type"
-			    android:textAppearance="?android:attr/textAppearanceMedium" />
+			    android:text="@string/vote_type" />
 			
 			<TextView
-			    android:id="@+id/vote_type"
+			    android:id="@+id/type"
 			    android:layout_width="match_parent"
 			    android:layout_height="wrap_content"
-			    android:text="@string/fill_white_space"
-			    android:textAppearance="?android:attr/textAppearanceMedium" />
-		</TableRow> 
-		
-	    <TableRow> 
-			<TextView
-			    android:id="@+id/text_deadline"
-			    android:layout_width="wrap_content"
-			    android:layout_height="wrap_content"
-			    android:layout_marginRight="@dimen/activity_vertical_margin"
-			    android:text="@string/deadline"
-			    android:textAppearance="?android:attr/textAppearanceMedium" />
-			
-			<TextView
-			    android:id="@+id/deadline"
-			    android:layout_width="wrap_content"
-			    android:layout_height="wrap_content"
-			    android:text="@string/fill_white_space"
-			    android:textAppearance="?android:attr/textAppearanceMedium" />
-		</TableRow> 
+			    android:text="@string/fill_white_space" />
+		</TableRow>
+
+	    <LinearLayout
+	        android:id="@+id/options"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:orientation="vertical" >
+
+	        <TextView
+	            android:id="@+id/text_option"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="@string/option" />
+
+	    </LinearLayout>
+
 	</TableLayout>
  </ScrollView>

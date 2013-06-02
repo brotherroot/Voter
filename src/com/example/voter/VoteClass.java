@@ -3,7 +3,6 @@ package com.example.voter;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -12,6 +11,7 @@ import android.util.Log;
 import android.util.Pair;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
@@ -30,7 +30,7 @@ public class VoteClass implements Serializable {
 	private String password;
 	//private Time start_time;
 	private Integer left_time;
-	private ArrayList<Pair<String, Integer>> options;
+	private ArrayList<OptionClass> options;
 	private Integer option_num;
 	
 	public VoteClass() {
@@ -43,7 +43,7 @@ public class VoteClass implements Serializable {
 		password = "";
 		//start_time = null;
 		left_time = 0;
-		options = new ArrayList<Pair<String, Integer>>();
+		options = new ArrayList<OptionClass>();
 		option_num = options.size();
 	}
 	
@@ -83,15 +83,15 @@ public class VoteClass implements Serializable {
 				option_num = curr.getChildCount();
 				for (int oi = 0; oi < option_num; ++oi) {
 					curr_option = curr.getChildAt(oi);
-					if (curr_option.getClass() == TextView.class) {
-						options.add(Pair.create(((TextView)curr_option).getText().toString(), 0));
+					if (curr_option.getClass() == EditText.class) {
+						options.add(new OptionClass(((EditText)curr_option).getText().toString()));
 					}
 				}
 			}
         }
 	}
 
-	public VoteClass(XmlPullParser parser) throws XmlPullParserException, IOException {
+	public VoteClass(XmlPullParser parser) throws XmlPullParserException, IOException, BadIdError {
 		this();
 		for (
 			int eventType=parser.getEventType();
@@ -118,7 +118,9 @@ public class VoteClass implements Serializable {
 					left_time = Integer.parseInt(parser.nextText());
 				} else if ("Option".equals(tagName)) {
 					Integer weight = Integer.parseInt(parser.getAttributeValue(0));
-					options.add(Pair.create(parser.nextText(), weight));
+					options.add(new OptionClass(parser.nextText(), weight));
+				} else if ("Error".equals(tagName)) {
+					throw new BadIdError();
 				}
 				break;
 			}
@@ -162,7 +164,7 @@ public class VoteClass implements Serializable {
 		return left_time;
 	}
 
-	public List<Pair<String, Integer>> getOptions() {
+	public ArrayList<OptionClass> getOptions() {
 		return options;
 	}
 
@@ -179,8 +181,8 @@ public class VoteClass implements Serializable {
 			"password=" + password +
 			"left_time=" + left_time +
 			"option=";
-		for (Pair<String, Integer> option: options) {
-			head = head + option.first + ',';
+		for (OptionClass option: options) {
+			head = head + option.option + ',';
 		}
 		return head;
 	}
