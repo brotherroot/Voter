@@ -11,12 +11,15 @@
 	<string name="yes">是</string>
 	<string name="no">否</string>
 	<string name="ok">确定</string>
+	<string name="cencel">取消</string>
+	
     
 	<string name="hint_topic">输入你要发起的话题</string>
 	<string name="hint_option1">请输入第1个选项</string>
 	<string name="hint_timelimit">按小时输入时限</string>
 	<string name="hint_password">密码框</string>
 	<string name="hint_launcher">给自己添一个id吧</string>
+	<string name="hint_description">对你的话题进行一些描述</string>
 	
 	<string name="get_timelimit">设定最长允许投票的时间:</string>
 	<string name="get_topic">您将发起的话题是：</string>
@@ -24,7 +27,6 @@
 	<string name="get_voteid">请输入id：</string>
 	
 	<string name="add_option">再加一个</string>
-	<string name="hint_description">对你的话题进行一些描述</string>
 	<string name="vote_type_choose">您的投票将允许：</string>
 	<string name="set_vote_right">是否设置投票权限：</string>
 	
