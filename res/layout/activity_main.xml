@@ -1,13 +1,12 @@
-<RelativeLayout 
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/main"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingLeft="@dimen/activity_vertical_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@drawable/main"
     tools:context=".MainActivity" >
 
     <TextView
@@ -24,30 +23,29 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/HelpButton"
+        android:id="@+id/AboutButton"
         android:layout_width="160dp"
         android:layout_height="40dp"
-        android:layout_alignLeft="@+id/JoinButton"
+        android:layout_alignLeft="@+id/LaunchButton"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="43dp"
+        android:layout_marginBottom="40dp"
         android:background="@drawable/about" />
-
-    <Button
-        android:id="@+id/LaunchButton"
-        android:layout_width="160dp"
-        android:layout_height="40dp"
-        android:layout_above="@+id/JoinButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="24dp"
-        android:background="@drawable/intiate" />
 
     <Button
         android:id="@+id/JoinButton"
         android:layout_width="160dp"
         android:layout_height="40dp"
-        android:layout_above="@+id/HelpButton"
-        android:layout_alignLeft="@+id/LaunchButton"
-        android:layout_marginBottom="27dp"
+        android:layout_above="@+id/AboutButton"
+        android:layout_alignLeft="@+id/AboutButton"
+        android:layout_marginBottom="40dp"
         android:background="@drawable/join" />
+
+    <Button
+        android:id="@+id/LaunchButton"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/intiate" />
 
 </RelativeLayout>

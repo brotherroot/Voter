@@ -23,7 +23,7 @@ public class MainCode extends Activity{
 		layout = (LinearLayout)findViewById(R.id.welcome);
 		launch = (Button)findViewById(R.id.LaunchButton);
 		join = (Button)findViewById(R.id.JoinButton);
-		help = (Button)findViewById(R.id.HelpButton);
+		help = (Button)findViewById(R.id.AboutButton);
 		
 		launch.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
