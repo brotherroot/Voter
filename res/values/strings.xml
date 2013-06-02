@@ -36,6 +36,7 @@
 	<string name="timelimit">时限</string>
 	<string name="deadline">结束时间</string>
 	<string name="vote_type">投票类型</string>
+	<string name="encrypted">是否加密</string>
 	<string name="single">单选</string>
 	<string name="multiply">多选</string>
 	<string name="option">选项</string>

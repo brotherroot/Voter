@@ -2,7 +2,6 @@ package com.example.voter;
 
 import com.example.voter.Launch;
 import com.example.voter.R;
-import com.example.voter.Showforconfirm;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -13,6 +12,10 @@ import android.widget.TextView;
 
 public class Show extends Activity{
 	
+	private TextView titleTextView;
+	private TextView descriptionTextView;
+	private TextView addidTextView;
+
 	public void onCreate(Bundle saveInstanceState){
 		Bundle savedInstanceState = null;
 		super.onCreate(savedInstanceState);

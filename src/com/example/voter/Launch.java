@@ -2,7 +2,7 @@ package com.example.voter;
 
 import com.example.voter.Launch;
 import com.example.voter.R;
-import com.example.voter.Showforconfirm;
+import com.example.voter.Show;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -64,14 +64,16 @@ public class Launch extends Activity{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				VoteClass new_vote = new VoteClass(formsetLayout);
 				
-				Intent intent = new Intent(Launch.this, Showforconfirm.class);
+				
+				Intent intent = new Intent(Launch.this, Show.class);
 				/* 通过Bundle对象存储需要传递的数据 */
 				Bundle bundle = new Bundle();
 				/* 字符、字符串、布尔、字节数组、浮点数等等，都可以传 */
-				bundle.putString("title", topic);
-				bundle.putString("description",description);
-				bundle.putString("addid",launcher);
+				bundle.putString("title", new_vote.getTopic());
+				bundle.putString("description", new_vote.getDescription());
+				bundle.putString("addid",new_vote.getLauncher());
 				/* 把bundle对象assign给Intent */
 				intent.putExtras(bundle);
 				startActivityForResult(intent, 0);
