@@ -124,13 +124,15 @@
         android:layout_height="wrap_content"
         android:text="@string/get_timelimit"
     />
+
 	<EditText
-             android:id="@+id/timestop"
-             android:layout_width="wrap_content"
-        	 android:layout_height="wrap_content"
-        	 android:layout_below="@+id/timerequest"
-        	 android:hint="@string/hint_timelimit"
-            />
+	    android:id="@+id/timestop"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@+id/timerequest"
+	    android:hint="@string/hint_timelimit"
+	    android:inputType="number" />
+
 	<TextView
         android:id="@+id/launcher"
         android:layout_below="@+id/timestop"

@@ -35,6 +35,7 @@
         <activity
             android:name="com.example.voter.Join">
         </activity>
+        
         <activity
             android:name="com.example.voter.Vote">
         </activity>

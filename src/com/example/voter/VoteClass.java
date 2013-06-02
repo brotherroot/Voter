@@ -8,7 +8,7 @@ import java.util.List;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
-import android.text.format.Time;
+import android.util.Log;
 import android.util.Pair;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,19 +16,19 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 public class VoteClass implements Serializable {
-	private static final long serialVersionUID = -7060210544600464481L;
+	private static final long serialVersionUID = 396893752L;
 	public static Integer NILID = -1;
-	public static boolean SINGLE = true;
-	public static boolean MULTI = false;
+	public static Boolean SINGLE = Boolean.TRUE;
+	public static Boolean MULTI = Boolean.FALSE;
 	
 	private Integer id;
 	private String topic;
 	private String launcher;
 	private String description;
-	private boolean single;
-	private boolean encrypted;
+	private Boolean single;
+	private Boolean encrypted;
 	private String password;
-	private Time start_time;
+	//private Time start_time;
 	private Integer left_time;
 	private ArrayList<Pair<String, Integer>> options;
 	private Integer option_num;
@@ -39,9 +39,9 @@ public class VoteClass implements Serializable {
 		launcher = "";
 		description = "";
 		single = SINGLE;
-		encrypted = false;
+		encrypted = Boolean.FALSE;
 		password = "";
-		start_time = null;
+		//start_time = null;
 		left_time = 0;
 		options = new ArrayList<Pair<String, Integer>>();
 		option_num = options.size();
@@ -49,7 +49,6 @@ public class VoteClass implements Serializable {
 	
 	public VoteClass(ViewGroup group) {
 		this();
-		
 		View child = null;
 		int child_count = group.getChildCount();
 		for (int ci = 0; ci < child_count; ++ci) {
@@ -59,7 +58,7 @@ public class VoteClass implements Serializable {
 				topic = ((TextView)child).getText().toString();
 				break;
 			case R.id.addid:
-				launcher = ((TextView)child).getText().toString();
+				launcher = ((TextView)child).getText().toString();				
 				break;
 			case R.id.descriptionbox:
 				description = ((TextView)child).getText().toString();
@@ -75,7 +74,7 @@ public class VoteClass implements Serializable {
 				}
 				break;
 			case R.id.timestop:
-				start_time = new Time("GMT+8");
+				//start_time = new Time("GMT+8");
 				left_time = Integer.parseInt(((TextView)child).getText().toString());
 				break;
 			case R.id.newvotes_layout:
@@ -155,9 +154,9 @@ public class VoteClass implements Serializable {
 		return password;
 	}
 
-	public Time getStartTime() {
-		return start_time;
-	}
+//	public Time getStartTime() {
+//		return start_time;
+//	}
 
 	public Integer getLeftTime() {
 		return left_time;

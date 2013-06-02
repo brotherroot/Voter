@@ -17,10 +17,12 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 
 public class Launch extends Activity{
 	private static final android.widget.RadioGroup.OnCheckedChangeListener listen = null;
 	int opnum=2;
+	RelativeLayout whole;
 	Button singleoption;
 	Button multioption;
 	LinearLayout formsetLayout;
@@ -38,6 +40,9 @@ public class Launch extends Activity{
 		Bundle savedInstanceState = null;
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.launch);
+		
+		whole = (RelativeLayout)findViewById(R.id.whole);
+		
 		singleoption=(Button)findViewById(R.id.sing);
 		multioption=(Button)findViewById(R.id.multi);
 		radioGroup=(RadioGroup)findViewById(R.id.sel2);
@@ -64,19 +69,24 @@ public class Launch extends Activity{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				VoteClass new_vote = new VoteClass(formsetLayout);
-				
-				
+				VoteClass new_vote = new VoteClass(whole);
+		
+				Bundle bundle =new Bundle();
+				bundle.putSerializable("data", new_vote);
 				Intent intent = new Intent(Launch.this, Show.class);
-				/* 通过Bundle对象存储需要传递的数据 */
-				Bundle bundle = new Bundle();
-				/* 字符、字符串、布尔、字节数组、浮点数等等，都可以传 */
-				bundle.putString("title", new_vote.getTopic());
-				bundle.putString("description", new_vote.getDescription());
-				bundle.putString("addid",new_vote.getLauncher());
-				/* 把bundle对象assign给Intent */
 				intent.putExtras(bundle);
-				startActivityForResult(intent, 0);
+				startActivity(intent);
+				
+//				Intent intent = new Intent(Launch.this, Show.class);
+//				/* 通过Bundle对象存储需要传递的数据 */
+//				Bundle bundle = new Bundle();
+//				/* 字符、字符串、布尔、字节数组、浮点数等等，都可以传 */
+//				bundle.putString("title", "12345");
+//				bundle.putString("description", new_vote.getDescription());
+//				bundle.putString("addid",new_vote.getLauncher());
+//				/* 把bundle对象assign给Intent */
+//				intent.putExtras(bundle);
+//				startActivityForResult(intent, 0);
 			}
 		});
 	}
