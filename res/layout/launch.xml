@@ -56,10 +56,11 @@
     </LinearLayout>
     <Button
         android:id="@+id/add_option"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/add_option"
+        android:layout_width="144dp"
+        android:layout_height="36dp"
         android:layout_below="@+id/newvotes_layout"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/add"
        />
      <TextView
         android:id="@+id/choice"
@@ -147,9 +148,11 @@
     <Button
         android:id="@+id/launchdef"
         android:layout_below="@+id/addid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/ok"
+        android:layout_centerHorizontal="true"
+        android:layout_width="120dp"
+        android:layout_height="30dp"
+        android:background="@drawable/sub"
+        
     />
     </RelativeLayout>
  </ScrollView>
