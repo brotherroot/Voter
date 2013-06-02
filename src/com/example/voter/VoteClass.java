@@ -1,18 +1,23 @@
 package com.example.voter;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
 
 import android.text.format.Time;
 import android.util.Pair;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
 public class VoteClass {
-	int id;
+	static Integer NILID = -1;
+	
+	Integer id;
 	String topic;
 	String launcher;
 	String description;
@@ -20,12 +25,12 @@ public class VoteClass {
 	boolean has_password;
 	String password;
 	Time starttime;
-	int lefttime;
-	int option_count;
+	Integer lefttime;
+	Integer option_count;
 	List<Pair<String, Integer>> options;
 	
-	VoteClass(ViewGroup group) throws Exception {
-		id = -1;
+	public VoteClass() {
+		id = NILID;
 		topic = "";
 		launcher = "";
 		description = "";
@@ -36,6 +41,10 @@ public class VoteClass {
 		lefttime = 0;
 		option_count = 0;
 		options = new ArrayList<Pair<String, Integer>>();
+	}
+	
+	public VoteClass(ViewGroup group) throws Exception {
+		this();
 		
 		View child = null;
 		int child_count = group.getChildCount();
@@ -78,4 +87,9 @@ public class VoteClass {
 			}
         }
 	}
+	
+	public VoteClass(XmlPullParser xml_pull_parser) throws XmlPullParserException, IOException {
+		
+	}
+	
 }
