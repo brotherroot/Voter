@@ -30,7 +30,7 @@ public class VoteClass implements Serializable {
 	private String password;
 	private Time start_time;
 	private Integer left_time;
-	private List<Pair<String, Integer>> options;
+	private ArrayList<Pair<String, Integer>> options;
 	private Integer option_num;
 	
 	public VoteClass() {
