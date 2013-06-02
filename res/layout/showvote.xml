@@ -1,4 +1,4 @@
-<RelativeLayout 
+<AbsoluteLayout
     xmlns:android="http://schemas.android.com/apk/res/android" 
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,14 +7,85 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".Show">
-   <TextView
-        android:id="@+id/retitile"
+    tools:context=".Launch">
+
+
+    <TextView
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/topic"
-    /> 
-     
-    
-    
-</RelativeLayout>
+    />
+
+     <LinearLayout
+        android:id="@+id/newvotes_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/descriptionbox"
+        android:orientation="vertical"
+        >
+             
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/describe"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_x="-1dp"
+        android:layout_y="47dp"
+        android:text="@string/description" />
+
+    <EditText
+        android:id="@+id/addid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="9dp"
+        android:layout_y="344dp"
+        android:ems="10"
+        android:hint="@string/launcherid" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="22dp"
+        android:layout_y="211dp"
+        android:text="@string/rightset" />
+
+    <TextView
+        android:id="@+id/launcher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="28dp"
+        android:layout_y="312dp"
+        android:text="@string/launchername" />
+
+    <TextView
+        android:id="@+id/timerequest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="28dp"
+        android:layout_y="274dp"
+        android:text="@string/timesetting" />
+
+    <EditText
+        android:id="@+id/de_vote_option_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_x="7dp"
+        android:layout_y="108dp"
+        android:ems="10"
+        android:hint="@string/option1" />
+
+    <TextView
+        android:id="@+id/choice"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_x="24dp"
+        android:layout_y="173dp"
+        android:text="@string/optionwords" />
+
+ </AbsoluteLayout>
