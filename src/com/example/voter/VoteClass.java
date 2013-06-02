@@ -1,6 +1,7 @@
 package com.example.voter;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +15,8 @@ import android.view.ViewGroup;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-public class VoteClass {
+public class VoteClass implements Serializable {
+	private static final long serialVersionUID = -7060210544600464481L;
 	public static Integer NILID = -1;
 	public static boolean SINGLE = true;
 	public static boolean MULTI = false;
@@ -122,7 +124,6 @@ public class VoteClass {
 				break;
 			}
 		}
-		
 		option_num = options.size();
 	}
 	
