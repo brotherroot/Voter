@@ -1,5 +1,9 @@
 package com.example.voter;
 
+import com.example.voter.Launch;
+import com.example.voter.R;
+import com.example.voter.Showforconfirm;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -22,6 +26,7 @@ public class Launch extends Activity{
 	LinearLayout formsetLayout;
 	Button add_optionButton, savevoteButton;
 	Button additionButton;
+	Button launchButton;
 	Intent intent1 =new Intent();
     EditText new_optionEditText;
 	EditText formeroptionEditText;
@@ -52,6 +57,25 @@ public class Launch extends Activity{
 				 add_option(opnum);
 				 opnum++;
 			 }
+		});
+		launchButton=(Button)findViewById(R.id.launchdef);
+		launchButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				
+				Intent intent = new Intent(Launch.this, Showforconfirm.class);
+				/* 通过Bundle对象存储需要传递的数据 */
+				Bundle bundle = new Bundle();
+				/* 字符、字符串、布尔、字节数组、浮点数等等，都可以传 */
+				bundle.putString("title", topic);
+				bundle.putString("description",description);
+				bundle.putString("addid",launcher);
+				/* 把bundle对象assign给Intent */
+				intent.putExtras(bundle);
+				startActivityForResult(intent, 0);
+			}
 		});
 	}
 
