@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Pair;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -47,8 +46,10 @@ public class Vote extends Activity {
 		TextView new_option = null;
 		for (OptionClass option:options) {
 			new_option = (TextView)new TextView(this);
-			new_option.setText(option.option);
+			new_option.setText(option.getOption());
 			layout_options.addView(new_option);
 		}
+		
+		
 	}
 }

@@ -1,32 +1,46 @@
 package com.example.voter;
 
 import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.util.Log;
-import android.util.Xml;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class Join extends Activity {
 	EditText inputvoteidEditText;
 	Button confirmButton;
 	
+	@SuppressLint("NewApi")
 	@Override
 	public void onCreate(Bundle saveInstanceState) {
 		Bundle savedInstanceState = null;
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.join);
+		
+		StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
+			.detectDiskReads()
+			.detectDiskWrites()
+			.detectNetwork()
+			.penaltyLog()
+			.build());
+        StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder()
+        	.detectLeakedSqlLiteObjects()
+        	.detectLeakedClosableObjects()
+        	.penaltyLog()
+        	.penaltyDeath()
+        	.build());
+		
+		
 		inputvoteidEditText = (EditText)findViewById(R.id.get_voteid);
 		confirmButton = (Button)findViewById(R.id.button_ok);
 		confirmButton.setOnClickListener(new View.OnClickListener() {
@@ -36,80 +50,33 @@ public class Join extends Activity {
 				/*
 				 * 服务器地址
 				 */
-				URL url = null;
 				try {
-					url = new URL("http://10.0.2.2:8080/request?id=" + voteid);
-				} catch (MalformedURLException e) {
-					// TODO Auto-generated catch block
-					Log.e("Join", "URL Visit Error");
-					e.printStackTrace();
-					return;
-				}
-				/*
-				 * 打开HttpURLConnection连接
-				 */
-				HttpURLConnection dbConnection = null;
-				try {
-					dbConnection = (HttpURLConnection)url.openConnection();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					Log.e("Join", "HTTP Connect IO Error");
-					e.printStackTrace();
-					return;
-				}
-				dbConnection.setDoOutput(true);
-				/*
-				 * 设置XmlPullParser对象
-				 */
-				XmlPullParser parser = Xml.newPullParser();
-				try {
-					parser.setInput(dbConnection.getInputStream(),"utf-8");
+					Log.d("Join", "before");
+					Log.d("Join", "path " + WebAccess.getRequestUrl(voteid));
+	
+					XmlPullParser parser = WebAccess.getXML(WebAccess.getRequestUrl(voteid));
+					
+					VoteClass vote_status = new VoteClass(parser);
+					
+					Log.d("Join", "vote built");
+					
+					Bundle data =new Bundle();
+					data.putSerializable("data", vote_status);
+					Intent intent = new Intent(Join.this, Vote.class);
+					intent.putExtras(data);
+					startActivity(intent);
 				} catch (XmlPullParserException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-					return;
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					Log.e("Join", "XML parser IO Error");
-					new AlertDialog.Builder(Join.this)
-						.setTitle("IO错误")
-						.setMessage("无法读取数据")
-						.setPositiveButton("确定", null)
-						.show();
 					e.printStackTrace();
+					Toast.makeText(Join.this,"IO错误:无法读取数据", Toast.LENGTH_LONG).show();
 					return;
-				}
-				/*
-				 * 建立VoteClass对象
-				 */
-				VoteClass vote_status = null;
-				try {
-					vote_status = new VoteClass(parser);
 				} catch (BadIdError e) {
 					e.printStackTrace();
-					new AlertDialog.Builder(Join.this)
-						.setTitle("投票ID错误")
-						.setMessage("ID " + voteid + " 非法")
-						.setPositiveButton("确定", null)
-						.show();
-					return;
-				}catch (XmlPullParserException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-					return;
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					Toast.makeText(Join.this,"不存在ID为" + voteid + "的投票", Toast.LENGTH_LONG).show();
 					return;
 				}
-				/*
-				 * 传入下一页面
-				 */
-				Bundle data =new Bundle();
-				data.putSerializable("data", vote_status);
-				Intent intent = new Intent(Join.this, Vote.class);
-				intent.putExtras(data);
-				startActivity(intent);
 			}
 		});
 	}

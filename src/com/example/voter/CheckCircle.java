@@ -5,12 +5,14 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import android.util.Pair;
 import android.view.View;
+
+import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
-import java.util.List;
+import java.net.MalformedURLException;
+import java.util.ArrayList;
 
 /**
  * Created by Eizo on 13-5-29.
@@ -57,26 +59,36 @@ public class CheckCircle extends View {
     final int IMAGEZONE_StrokeWidth = 15;
 
 
-    List<Pair<String, Float>> dataList;
+    ArrayList<OptionClass> dataList;
     /**
      * 最终封装的构造函数
      * @param context    从创建出传入的context
      * @param questionID 问题ID
      */
 
-    public CheckCircle(Context context,int questionID)
+    public CheckCircle(Context context,Integer questionID)
     {
         super(context);
         try {
             // 从网络获取数据
-            dataList = WebAccess.getResult(questionID);
-        } catch (XmlPullParserException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        	XmlPullParser parser = WebAccess.getXML(WebAccess.getRequestUrl(questionID));
+			VoteClass vote_status = new VoteClass(parser);
+            dataList =vote_status.getOptions();
+        } catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (XmlPullParserException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+			return;
+		} catch (BadIdError e) {
+			e.printStackTrace();
+			return;
+		}
         // 初始化数据列表
-        initAngles();
+//        initAngles();
     }
 
     /**
@@ -110,7 +122,7 @@ public class CheckCircle extends View {
             pen[i] = new Paint();
             pen[i].setAntiAlias(IMAGEZONE_FILLIMAGE);
             pen[i].setColor(ColorSet[i%6]);
-            pen[i].setStyle(Paint.Style.STROKE);
+ //           pen[i].setStyle(Paint.Style.STROKE);
             pen[i].setStrokeWidth(IMAGEZONE_StrokeWidth);
         }
         // 分段绘制图形
@@ -120,27 +132,27 @@ public class CheckCircle extends View {
             float AR2 = IMAGEZONE_START_Y + IMAGEZONE_DELTA;
             float AR3 = IMAGEZONE_WIDTH + AR1;
             float AR4 = IMAGEZONE_HEIGHT + AR2;
-            float AR6 = dataList.get(i).second;
+            float AR6 = dataList.get(i).getWeight();
             canvas.drawArc(new RectF(AR1, AR2, AR3, AR4),angleSweeped,AR6,false,pen[i]);
             angleSweeped += AR6;
         }
     }
 
-    /**
-     * 将来自WebAccess的List处理成对应的字串-角度序列
-     */
-    void initAngles()
-    {
-        float sum = 0;
-        Pair<String,Float> tmpPair = null;
-        for(int i=0; i < dataList.size(); i++)
-        {
-            sum += dataList.get(i).second;
-        }
-        for(int i=0; i < dataList.size(); i++)
-        {
-            tmpPair = dataList.get(i);
-            dataList.set(i,Pair.create(tmpPair.first, tmpPair.second * 360.f / sum));
-        }
-    }
+//    /**
+//     * 将来自WebAccess的List处理成对应的字串-角度序列
+//     */
+//    void initAngles()
+//    {
+//        float sum = 0;
+//        Pair<String,Float> tmpPair = null;
+//        for(int i=0; i < dataList.size(); i++)
+//        {
+//            sum += dataList.get(i).second;
+//        }
+//        for(int i=0; i < dataList.size(); i++)
+//        {
+//            tmpPair = dataList.get(i);
+//            dataList.set(i,Pair.create(tmpPair.first, tmpPair.second * 360.f / sum));
+//        }
+//    }
 }

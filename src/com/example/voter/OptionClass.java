@@ -4,16 +4,11 @@ import java.io.Serializable;
 
 public class OptionClass implements Serializable {
 	private static final long serialVersionUID = 131201L;
-	String option;
-	Integer weight;
+	private String option;
+	private Integer weight;
 	
 	public OptionClass() {
 		option = "";
-		weight = 0;
-	}
-	
-	public OptionClass(String str) {
-		option = str;
 		weight = 0;
 	}
 	
@@ -29,5 +24,18 @@ public class OptionClass implements Serializable {
 	
 	static OptionClass create(String str) {
 		return new OptionClass(str);
+	}
+	
+	public String getOption() {
+		return option;
+	}
+
+	public Integer getWeight() {
+		return weight;
+	}
+
+	public OptionClass(String str) {
+		option = str;
+		weight = 0;
 	}
 }

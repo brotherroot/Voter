@@ -8,7 +8,6 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
 import android.util.Log;
-import android.util.Pair;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -69,7 +68,7 @@ public class VoteClass implements Serializable {
 			case R.id.sel2:
 				encrypted = (R.id.self == ((RadioGroup)child).getCheckedRadioButtonId());
 				if (encrypted) {
-					// @todo get password
+					// TODO get password
 					password = "";
 				}
 				break;
@@ -101,6 +100,9 @@ public class VoteClass implements Serializable {
 			switch (eventType) {
 			case XmlPullParser.START_TAG:
 				String tagName = parser.getName();
+				
+				Log.d("VoteClass", tagName);
+				
 				if ("Id".equals(tagName)) {
 					id = Integer.parseInt(parser.nextText());
 				} else if ("Topic".equals(tagName)) {
@@ -114,9 +116,12 @@ public class VoteClass implements Serializable {
 				} else if ("Password".equals(tagName)) {
 					password = parser.nextText();
 					encrypted = (password != "");
-				} else if ("LeftTime".equals(tagName)) {
-					left_time = Integer.parseInt(parser.nextText());
+//				} else if ("LeftTime".equals(tagName)) {
+//					left_time = Integer.parseInt(parser.nextText());
 				} else if ("Option".equals(tagName)) {
+					
+					Log.d("VoteClass", parser.getAttributeValue(0));
+					
 					Integer weight = Integer.parseInt(parser.getAttributeValue(0));
 					options.add(new OptionClass(parser.nextText(), weight));
 				} else if ("Error".equals(tagName)) {
@@ -170,20 +175,5 @@ public class VoteClass implements Serializable {
 
 	public Integer getOptionNum() {
 		return option_num;
-	}
-	
-	public String toCreateURL(String head) {
-		head = head+ "/submit?" +
-			"topic=" + topic +
-			"launcher=" + launcher +
-			"description=" + description +
-			"type=" + (single ? "single" : "multi") +
-			"password=" + password +
-			"left_time=" + left_time +
-			"option=";
-		for (OptionClass option: options) {
-			head = head + option.option + ',';
-		}
-		return head;
 	}
 }
