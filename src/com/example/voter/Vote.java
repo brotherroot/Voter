@@ -38,8 +38,8 @@ public class Vote extends Activity {
 		text_description = (TextView)findViewById(R.id.description);
 		text_description.setText(vote_status.getDescription().toString());
 		
-		text_type = (TextView)findViewById(R.id.type);
-		text_type.setText(getResources().getString(vote_status.isSingle() ? R.string.single : R.string.multiply));
+//		text_type = (TextView)findViewById(R.id.type);
+//		text_type.setText(getResources().getString(vote_status.isSingle() ? R.string.single : R.string.multiply));
 		
 		layout_options = (LinearLayout)findViewById(R.id.options);
 		ArrayList<OptionClass> options = vote_status.getOptions();
