@@ -62,14 +62,14 @@
         android:layout_centerHorizontal="true"
         android:background="@drawable/add"
        />
-     <TextView
+     <!--<TextView
         android:id="@+id/choice"
         android:layout_below="@+id/add_option"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/vote_type_choose"
     />
-	 <RadioGroup android:id="@+id/sel1"
+	  <RadioGroup android:id="@+id/sel1"
 	     android:orientation="horizontal"
 	     android:layout_gravity="center_horizontal"
 	     android:layout_width="wrap_content"
@@ -116,10 +116,10 @@
       android:layout_height="wrap_content"
       android:text="@string/no" 
       />
-  </RadioGroup>
+  </RadioGroup>--> 
   <TextView
         android:id="@+id/timerequest"
-        android:layout_below="@+id/sel2"
+        android:layout_below="@+id/add_option"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/get_timelimit"

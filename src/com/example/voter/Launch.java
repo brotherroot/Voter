@@ -4,6 +4,7 @@ import com.example.voter.Launch;
 import com.example.voter.R;
 import com.example.voter.Show;
 
+import android.R.string;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -22,6 +23,7 @@ import android.widget.RelativeLayout;
 public class Launch extends Activity{
 	private static final android.widget.RadioGroup.OnCheckedChangeListener listen = null;
 	int opnum=2;
+	string password;
 	RelativeLayout whole;
 	Button singleoption;
 	Button multioption;
@@ -41,19 +43,12 @@ public class Launch extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.launch);
 		
-		whole = (RelativeLayout)findViewById(R.id.whole);
-		
-		singleoption=(Button)findViewById(R.id.sing);
-		multioption=(Button)findViewById(R.id.multi);
-		radioGroup=(RadioGroup)findViewById(R.id.sel2);
-		radioGroup.setOnCheckedChangeListener(listen);
-		
-		nonpasswordButton=(RadioButton)findViewById(R.id.self);
-		passwordButton=(RadioButton)findViewById(R.id.pub);
-		passwordButton.setOnClickListener(new View.OnClickListener() {       
-		       public void onClick(View v) {
-	    	   add_password(); 
-	    	   }});
+		whole = (RelativeLayout)findViewById(R.id.whole);	
+		//passwordButton=(RadioButton)findViewById(R.id.pub);
+//		passwordButton.setOnClickListener(new View.OnClickListener() {       
+//		       public void onClick(View v) {
+//	    	   add_password(); 
+//	    	   }});
 		formeroptionEditText=(EditText)findViewById(R.id.de_vote_option_1);
 		formsetLayout=(LinearLayout)findViewById(R.id.newvotes_layout);
 		additionButton=(Button)findViewById(R.id.add_option);
@@ -98,30 +93,30 @@ public class Launch extends Activity{
 		formsetLayout.addView(new_optionEditText);
 		
 	}
-	public void add_password(){
-		LayoutInflater layoutInflater = LayoutInflater.from(this); 
-        View myLoginView = layoutInflater.inflate(R.layout.password, null); 
+	//public void add_password(){
+	//	LayoutInflater layoutInflater = LayoutInflater.from(this); 
+       // View myLoginView = layoutInflater.inflate(R.layout.password, null); 
          
-        Dialog alertDialog = new AlertDialog.Builder(this). 
-                setTitle("密码框"). 
-                setIcon(R.drawable.ic_launcher). 
-                setView(myLoginView). 
-                setPositiveButton("确定", new DialogInterface.OnClickListener() { 
+       // Dialog alertDialog = new AlertDialog.Builder(this). 
+        //        setTitle("密码框"). 
+         //     setIcon(R.drawable.ic_launcher). 
+           //     setView(myLoginView). 
+            //    setPositiveButton("确定", new DialogInterface.OnClickListener() { 
  
-                    @Override 
-                    public void onClick(DialogInterface dialog, int which) { 
+              //      @Override 
+               //     public void onClick(DialogInterface dialog, int which) { 
                         // TODO Auto-generated method stub  
-                    } 
-                }). 
-                setNegativeButton("取消", new DialogInterface.OnClickListener() { 
+             //   } 
+             //  }). 
+              //  setNegativeButton("取消", new DialogInterface.OnClickListener() { 
  
-                  //  @Override 
-                    public void onClick(DialogInterface dialog, int which) { 
+              //    @Override 
+               //   public void onClick(DialogInterface dialog, int which) { 
                         // TODO Auto-generated method stub  
-                    } 
-                }). 
-                create(); 
-        alertDialog.show(); 
-	}
+              //   } 
+              //  }). 
+           //     create(); 
+      //  alertDialog.show(); 
+	//}
 		 }
 	

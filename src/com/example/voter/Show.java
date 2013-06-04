@@ -35,8 +35,8 @@ public class Show extends Activity{
 		descriptionTextView = (TextView)findViewById(R.id.describe);
 		addidTextView = (TextView)findViewById(R.id.launcher);
 
-		titleTextView.setText(new_vote.getTopic());
-		descriptionTextView.setText(new_vote.getDescription());
+		titleTextView.setText("您的话题是："+new_vote.getTopic());
+		descriptionTextView.setText("描述:\n"+new_vote.getDescription());
 
 	}
 	
