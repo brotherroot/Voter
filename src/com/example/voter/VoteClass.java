@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -39,7 +38,7 @@ public class VoteClass implements Serializable {
 //		single = SINGLE;
 //		encrypted = Boolean.FALSE;
 //		password = "";
-		//start_time = null;
+//		start_time = null;
 		left_time = 0;
 		options = new ArrayList<OptionClass>();
 		option_num = options.size();
@@ -98,10 +97,7 @@ public class VoteClass implements Serializable {
 		) {
 			switch (eventType) {
 			case XmlPullParser.START_TAG:
-				String tagName = parser.getName();
-				
-				Log.d("VoteClass", tagName);
-				
+				String tagName = parser.getName();	
 				if ("Id".equals(tagName)) {
 					id = Integer.parseInt(parser.nextText());
 				} else if ("Topic".equals(tagName)) {
@@ -117,10 +113,7 @@ public class VoteClass implements Serializable {
 //					encrypted = (password != "");
 //				} else if ("LeftTime".equals(tagName)) {
 //					left_time = Integer.parseInt(parser.nextText());
-				} else if ("Option".equals(tagName)) {
-					
-					Log.d("VoteClass", parser.getAttributeValue(0));
-					
+				} else if ("Option".equals(tagName)) {				
 					Integer weight = Integer.parseInt(parser.getAttributeValue(0));
 					options.add(new OptionClass(parser.nextText(), weight));
 				} else if ("Error".equals(tagName)) {
@@ -174,5 +167,13 @@ public class VoteClass implements Serializable {
 
 	public Integer getOptionNum() {
 		return option_num;
+	}
+	
+	public Integer getTotalWeight() {
+		Integer weight = 0;
+		for (OptionClass option: options) {	
+			weight += option.getWeight();
+		}
+		return weight;
 	}
 }
