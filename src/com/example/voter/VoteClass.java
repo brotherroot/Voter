@@ -26,7 +26,7 @@ public class VoteClass implements Serializable {
 //	private Boolean encrypted;
 //	private String password;
 //	private Time start_time;
-	private Integer left_time;
+	private Integer lifetime;
 	private ArrayList<OptionClass> options;
 	private Integer option_num;
 	
@@ -39,7 +39,7 @@ public class VoteClass implements Serializable {
 //		encrypted = Boolean.FALSE;
 //		password = "";
 //		start_time = null;
-		left_time = 0;
+		lifetime = 0;
 		options = new ArrayList<OptionClass>();
 		option_num = options.size();
 	}
@@ -72,7 +72,7 @@ public class VoteClass implements Serializable {
 //				break;
 			case R.id.lifetime:
 				//start_time = new Time("GMT+8");
-				left_time = Integer.parseInt(((TextView)child).getText().toString());
+				lifetime = Integer.parseInt(((TextView)child).getText().toString());
 				break;
 			case R.id.option:
 				ViewGroup curr = (ViewGroup)child;
@@ -157,8 +157,8 @@ public class VoteClass implements Serializable {
 //		return start_time;
 //	}
 
-	public Integer getLeftTime() {
-		return left_time;
+	public Integer getLifeTime() {
+		return lifetime;
 	}
 
 	public ArrayList<OptionClass> getOptions() {

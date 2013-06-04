@@ -19,7 +19,6 @@ public class MainCode extends Activity{
 		Bundle savedInstanceState = null;
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		layout = (LinearLayout)findViewById(R.id.welcome);
 		launch = (Button)findViewById(R.id.LaunchButton);
 		join = (Button)findViewById(R.id.JoinButton);
 		help = (Button)findViewById(R.id.AboutButton);

@@ -137,7 +137,7 @@
 	      android:layout_below="@+id/add_option"
 	      android:layout_width="wrap_content"
 	      android:layout_height="wrap_content"
-	      android:text="@string/get_timelimit" />
+	      android:text="@string/get_lifetime" />
 	  
 	  <EditText
 	      android:id="@+id/lifetime"
@@ -145,7 +145,7 @@
 	      android:layout_height="wrap_content"
 	      android:layout_below="@+id/text_lifetime"
 	      android:layout_marginBottom="@dimen/activity_horizontal_margin"
-	      android:hint="@string/hint_timelimit"
+	      android:hint="@string/hint_lifetime"
 	      android:inputType="number" />
 	  
 	  <TextView

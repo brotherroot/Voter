@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/activity_vertical_margin"
+    tools:context=".Show" >
+
+	<TableLayout
+        android:id="@+id/whole"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+        
+	    <TableRow
+	        android:layout_width="wrap_content"
+	        android:layout_height="match_parent"
+	        android:layout_marginBottom="@dimen/activity_horizontal_margin" >
+
+            <TextView
+                android:id="@+id/text_topic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/activity_vertical_margin"
+                android:text="@string/topic" />
+            <TextView
+                android:id="@+id/topic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="@string/fill_white_space" />
+        </TableRow>
+        
+	    <TableRow
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin" >
+            <TextView
+                android:id="@+id/text_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/activity_vertical_margin"
+                android:text="@string/description" />
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="@string/fill_white_space" />
+        </TableRow>
+        
+	    <TableRow android:layout_marginBottom="@dimen/activity_horizontal_margin" >
+            <TextView
+                android:id="@+id/text_launcher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/activity_vertical_margin"
+                android:text="@string/launcher" />
+            <TextView
+                android:id="@+id/launcher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fill_white_space" />
+        </TableRow>
+        
+	    <TableRow android:layout_marginBottom="@dimen/activity_horizontal_margin" >
+	        <TextView
+	            android:id="@+id/text_lifetime"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginRight="@dimen/activity_vertical_margin"
+	            android:text="@string/lifetime" />
+            <TextView
+                android:id="@+id/lifetime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fill_white_space" />
+        </TableRow>
+        
+        <TableLayout
+            android:id="@+id/options"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:orientation="vertical" >
+            <TextView
+                android:id="@+id/text_option"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/option" />
+        </TableLayout>
+        <TableRow android:gravity="center" >
+	        <Button
+	            android:id="@+id/buttom_create"
+	            android:layout_width="120dp"
+	            android:layout_height="30dp"
+	            android:background="@drawable/sub"
+	            android:gravity="center_vertical" />
+		</TableRow>
+    </TableLayout>
+</ScrollView>
