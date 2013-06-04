@@ -47,9 +47,9 @@ public class Vote extends Activity {
 		for (OptionClass option:options) {
 			new_option = (TextView)new TextView(this);
 			new_option.setText(option.getOption());
+			new_option.setBottom(R.dimen.activity_horizontal_margin);
 			layout_options.addView(new_option);
 		}
-		
-		
+
 	}
 }
