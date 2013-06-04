@@ -1,5 +1,7 @@
 package com.example.voter;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 
 import android.annotation.SuppressLint;
@@ -57,8 +59,15 @@ public class Vote extends Activity {
 		button_vote = (Button)findViewById(R.id.buttom_vote);
 		button_vote.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				Log.d("Vote", "id =  " + group_options.getCheckedRadioButtonId());
-				String select = "[" + (group_options.getCheckedRadioButtonId() -1) + "]";
+				try {
+					URL url = new URL(WebAccess.getVoteUrl(Integer.parseInt(text_id.getText().toString()), group_options.getCheckedRadioButtonId() -1));
+				} catch (NumberFormatException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (MalformedURLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				// TODO post
 			}
 		});

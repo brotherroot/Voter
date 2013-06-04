@@ -1,6 +1,5 @@
 package com.example.voter;
 
-import android.util.Log;
 import android.util.Xml;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -55,12 +54,19 @@ public class WebAccess {
 	 */
 	public static String getVoteUrl(Integer id, List<Integer> votes)
     {
-		String urlPath = HostName + "/vote?id=" + id;
+		String urlPath = HostName + "/vote?id=" + id + "&option=[";
 		for (Integer vote: votes) {
-			urlPath.concat(vote.toString());
+			urlPath.concat(vote.toString() + ",");
 		}
+		urlPath.concat("]");
 		return urlPath;
 	}
+	
+	public static String getVoteUrl(Integer id, int votes)
+    {
+		return HostName + "/vote?id=" + id + "&option=" + votes;
+	}
+	
 	/**
 	 * 返回用于读取服务器上投票对象的XmlPullParser对象
 	 * @param  urlPath 服务器访问路径
@@ -68,24 +74,12 @@ public class WebAccess {
 	 */
 	public static XmlPullParser getXML(String urlPath)
 			throws XmlPullParserException, IOException {
-		URL url=new URL(urlPath);
-		
-		Log.d("WebAccess", "url built");
-		
+		URL url=new URL(urlPath);	
 		HttpURLConnection connect = (HttpURLConnection)url.openConnection();
 		connect.setDoInput(true);
-		connect.connect();
-		
-		Log.d("WebAccess", "connect built");
-		
-		XmlPullParser parser = Xml.newPullParser();
-		
-		Log.d("WebAccess", "parser built");
-		
-		parser.setInput(connect.getInputStream(),"utf-8");
-		
-		Log.d("WebAccess", "parser set");
-		
+		connect.connect();	
+		XmlPullParser parser = Xml.newPullParser();	
+		parser.setInput(connect.getInputStream(),"utf-8");	
 		return parser;
 	}
 	
