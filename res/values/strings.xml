@@ -16,6 +16,7 @@
     
 	<string name="hint_topic">输入你要发起的话题</string>
 	<string name="hint_option1">请输入第1个选项</string>
+	<string name="hint_option2">请输入第2个选项</string>
 	<string name="hint_timelimit">按小时输入时限</string>
 	<string name="hint_password">密码框</string>
 	<string name="hint_launcher">给自己添一个id吧</string>

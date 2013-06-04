@@ -37,8 +37,8 @@ public class WebAccess {
 		String urlPath = HostName + "/submit?topic=" + vote.getTopic() +
 			"&launcher=" + vote.getLauncher() +
 			"&description=" + vote.getDescription() +
-			"&type=" + (vote.isSingle() ? "single" : "multi") +
-			"&password=" + vote.getPassword() +
+//			"&type=" + (vote.isSingle() ? "single" : "multi") +
+//			"&password=" + vote.getPassword() +
 			"&option=[";
 		ArrayList<OptionClass> options = vote.getOptions();
 		for (OptionClass option: options) {

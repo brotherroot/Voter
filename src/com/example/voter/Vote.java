@@ -38,8 +38,8 @@ public class Vote extends Activity {
 		text_description = (TextView)findViewById(R.id.description);
 		text_description.setText(vote_status.getDescription().toString());
 		
-		text_type = (TextView)findViewById(R.id.type);
-		text_type.setText(getResources().getString(vote_status.isSingle() ? R.string.single : R.string.multiply));
+//		text_type = (TextView)findViewById(R.id.type);
+//		text_type.setText(getResources().getString(vote_status.isSingle() ? R.string.single : R.string.multiply));
 		
 		layout_options = (LinearLayout)findViewById(R.id.options);
 		ArrayList<OptionClass> options = vote_status.getOptions();
@@ -47,9 +47,9 @@ public class Vote extends Activity {
 		for (OptionClass option:options) {
 			new_option = (TextView)new TextView(this);
 			new_option.setText(option.getOption());
+			new_option.setBottom(R.dimen.activity_horizontal_margin);
 			layout_options.addView(new_option);
 		}
-		
-		
+
 	}
 }

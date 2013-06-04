@@ -11,7 +11,6 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 
 public class VoteClass implements Serializable {
@@ -24,10 +23,10 @@ public class VoteClass implements Serializable {
 	private String topic;
 	private String launcher;
 	private String description;
-	private Boolean single;
-	private Boolean encrypted;
-	private String password;
-	//private Time start_time;
+//	private Boolean single;
+//	private Boolean encrypted;
+//	private String password;
+//	private Time start_time;
 	private Integer left_time;
 	private ArrayList<OptionClass> options;
 	private Integer option_num;
@@ -37,9 +36,9 @@ public class VoteClass implements Serializable {
 		topic = "";
 		launcher = "";
 		description = "";
-		single = SINGLE;
-		encrypted = Boolean.FALSE;
-		password = "";
+//		single = SINGLE;
+//		encrypted = Boolean.FALSE;
+//		password = "";
 		//start_time = null;
 		left_time = 0;
 		options = new ArrayList<OptionClass>();
@@ -53,30 +52,30 @@ public class VoteClass implements Serializable {
 		for (int ci = 0; ci < child_count; ++ci) {
 			child = group.getChildAt(ci);
 			switch (child.getId()) {
-			case R.id.titlebox:
+			case R.id.topic:
 				topic = ((TextView)child).getText().toString();
 				break;
-			case R.id.addid:
+			case R.id.launcher:
 				launcher = ((TextView)child).getText().toString();				
 				break;
-			case R.id.descriptionbox:
+			case R.id.description:
 				description = ((TextView)child).getText().toString();
 				break;
-			case R.id.sel1:
-				single = (R.id.sing == ((RadioGroup)child).getCheckedRadioButtonId());
-				break;
-			case R.id.sel2:
-				encrypted = (R.id.self == ((RadioGroup)child).getCheckedRadioButtonId());
-				if (encrypted) {
-					// TODO get password
-					password = "";
-				}
-				break;
-			case R.id.timestop:
+//			case R.id.sel1:
+//				single = (R.id.sing == ((RadioGroup)child).getCheckedRadioButtonId());
+//				break;
+//			case R.id.sel2:
+//				encrypted = (R.id.self == ((RadioGroup)child).getCheckedRadioButtonId());
+//				if (encrypted) {
+//					// TODO get password
+//					password = "";
+//				}
+//				break;
+			case R.id.lifetime:
 				//start_time = new Time("GMT+8");
 				left_time = Integer.parseInt(((TextView)child).getText().toString());
 				break;
-			case R.id.newvotes_layout:
+			case R.id.option:
 				ViewGroup curr = (ViewGroup)child;
 				View curr_option = null;
 				option_num = curr.getChildCount();
@@ -111,11 +110,11 @@ public class VoteClass implements Serializable {
 					launcher = parser.nextText();
 				} else if ("Description".equals(tagName)) {
 					description = parser.nextText();
-				} else if ("Type".equals(tagName)) {
-					single = (parser.nextText() == "single");
-				} else if ("Password".equals(tagName)) {
-					password = parser.nextText();
-					encrypted = (password != "");
+//				} else if ("Type".equals(tagName)) {
+//					single = (parser.nextText() == "single");
+//				} else if ("Password".equals(tagName)) {
+//					password = parser.nextText();
+//					encrypted = (password != "");
 //				} else if ("LeftTime".equals(tagName)) {
 //					left_time = Integer.parseInt(parser.nextText());
 				} else if ("Option".equals(tagName)) {
@@ -149,17 +148,17 @@ public class VoteClass implements Serializable {
 		return description;
 	}
 
-	public boolean isSingle() {
-		return single;
-	}
-
-	public boolean isEncrypted() {
-		return encrypted;
-	}
-
-	public String getPassword() {
-		return password;
-	}
+//	public boolean isSingle() {
+//		return single;
+//	}
+//
+//	public boolean isEncrypted() {
+//		return encrypted;
+//	}
+//
+//	public String getPassword() {
+//		return password;
+//	}
 
 //	public Time getStartTime() {
 //		return start_time;
