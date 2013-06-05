@@ -52,6 +52,7 @@ public class Show extends Activity{
 		}
 		
 		webPostThread = new Thread(new WebPostThread(new_vote, this));
+		button_create =  (Button)findViewById(R.id.button_create);
 		button_create.setOnClickListener(new View.OnClickListener() {
 			
 			@Override

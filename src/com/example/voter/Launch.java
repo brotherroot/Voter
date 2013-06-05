@@ -52,7 +52,6 @@ public class Launch extends Activity {
 				Intent intent = new Intent(Launch.this, Show.class);
 				intent.putExtras(bundle);
 				startActivity(intent);
-
 			}
 		});
 	}

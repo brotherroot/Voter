@@ -50,7 +50,7 @@ public class Join extends Activity {
 				if(id.getText().toString().length()==0) {
 					return;
 				}
-				int voteid = Integer.parseInt(confirm.getText().toString());
+				int voteid = Integer.parseInt(id.getText().toString());
 				Thread webGetThread = new Thread(new WebGetThread(voteid, Join.this));
 				webGetThread.start();
 			}
