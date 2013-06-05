@@ -1,15 +1,12 @@
 package com.example.voter;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
-
-import com.example.voter.R;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TextView;
@@ -22,10 +19,12 @@ public class Show extends Activity{
 	private TableLayout layout_options;
 	private Button button_create;
 	private VoteClass new_vote;
+	private Thread webPostThread = null;
 
 	public void onCreate(Bundle saveInstanceState){
 		Bundle savedInstanceState = null;
 		super.onCreate(savedInstanceState);
+		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.show);
 		
 		Intent intent = getIntent();
@@ -52,19 +51,12 @@ public class Show extends Activity{
 			layout_options.addView(new_option);
 		}
 		
-		button_create = (Button)findViewById(R.id.buttom_create);
+		webPostThread = new Thread(new WebPostThread(new_vote, this));
 		button_create.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
 			public void onClick(View v) {
-				try {
-					URL url = new URL(WebAccess.getCreateUrl(new_vote));
-				} catch (NumberFormatException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (MalformedURLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				// TODO post
+				webPostThread.start();
 			}
 		});
 	}

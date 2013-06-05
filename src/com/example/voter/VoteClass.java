@@ -15,17 +15,11 @@ import android.widget.TextView;
 public class VoteClass implements Serializable {
 	private static final long serialVersionUID = 396893752L;
 	public static Integer NILID = -1;
-	public static Boolean SINGLE = Boolean.TRUE;
-	public static Boolean MULTI = Boolean.FALSE;
 	
 	private Integer id;
 	private String topic;
 	private String launcher;
 	private String description;
-//	private Boolean single;
-//	private Boolean encrypted;
-//	private String password;
-//	private Time start_time;
 	private Integer lifetime;
 	private ArrayList<OptionClass> options;
 	private Integer option_num;
@@ -35,10 +29,6 @@ public class VoteClass implements Serializable {
 		topic = "";
 		launcher = "";
 		description = "";
-//		single = SINGLE;
-//		encrypted = Boolean.FALSE;
-//		password = "";
-//		start_time = null;
 		lifetime = 0;
 		options = new ArrayList<OptionClass>();
 		option_num = options.size();
@@ -60,18 +50,7 @@ public class VoteClass implements Serializable {
 			case R.id.description:
 				description = ((TextView)child).getText().toString();
 				break;
-//			case R.id.sel1:
-//				single = (R.id.sing == ((RadioGroup)child).getCheckedRadioButtonId());
-//				break;
-//			case R.id.sel2:
-//				encrypted = (R.id.self == ((RadioGroup)child).getCheckedRadioButtonId());
-//				if (encrypted) {
-//					// TODO get password
-//					password = "";
-//				}
-//				break;
 			case R.id.lifetime:
-				//start_time = new Time("GMT+8");
 				lifetime = Integer.parseInt(((TextView)child).getText().toString());
 				break;
 			case R.id.option:
@@ -106,13 +85,6 @@ public class VoteClass implements Serializable {
 					launcher = parser.nextText();
 				} else if ("Description".equals(tagName)) {
 					description = parser.nextText();
-//				} else if ("Type".equals(tagName)) {
-//					single = (parser.nextText() == "single");
-//				} else if ("Password".equals(tagName)) {
-//					password = parser.nextText();
-//					encrypted = (password != "");
-//				} else if ("LeftTime".equals(tagName)) {
-//					left_time = Integer.parseInt(parser.nextText());
 				} else if ("Option".equals(tagName)) {				
 					Integer weight = Integer.parseInt(parser.getAttributeValue(0));
 					options.add(new OptionClass(parser.nextText(), weight));
@@ -140,22 +112,6 @@ public class VoteClass implements Serializable {
 	public String getDescription() {
 		return description;
 	}
-
-//	public boolean isSingle() {
-//		return single;
-//	}
-//
-//	public boolean isEncrypted() {
-//		return encrypted;
-//	}
-//
-//	public String getPassword() {
-//		return password;
-//	}
-
-//	public Time getStartTime() {
-//		return start_time;
-//	}
 
 	public Integer getLifeTime() {
 		return lifetime;
